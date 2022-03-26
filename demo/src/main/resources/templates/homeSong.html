@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs</title>
+</head>
+<body>
+<form action="/addSong" method="post">
+    <label>Title  </label><input type="text" name="title" /><br><br>
+    <label>Length  </label><input type="text" name="length" /><br><br>
+    <label>Track Number  </label><input type="text" name="trackNumber" /><br><br>
+    <select name="album">
+        <option th:each="album : ${allAlbum}"
+                th:text="${album.title}"
+                th:value="${album.id}"
+                th:selected="${album.id}">
+
+        </option>
+    </select>
+    <button type="submit">submit</button><br>
+</form>
+</body>
+</html>
