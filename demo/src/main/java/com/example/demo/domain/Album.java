@@ -3,6 +3,8 @@ package com.example.demo.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -24,6 +26,22 @@ public class Album {
     }
 
     protected Album() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
     }
 
     public String getTitle() {
@@ -76,4 +94,7 @@ public class Album {
                 ", length=" + length +
                 '}';
     }
+
+    @OneToMany(mappedBy = "album")
+    List<Song> songs;
 }
