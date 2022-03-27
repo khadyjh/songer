@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<body>
+<form action="/post" method="post">
+    <label> Type your post here : </label> <br><br>
+    <textarea name="content" type="text"></textarea><br><br>
+    <select name="user">
+        <option th:each="user : ${users}"
+                th:text="${user.userName}"
+                th:value="${user.userId}"
+                th:selected="${user.userId}">
+
+        </option>
+    </select><br><br>
+
+    <button type="submit"> Post  </button>
+</form>
+<br><br><br><br>
+<h1>Posts</h1>
+
+<ul th:each="post:${allPosts}">
+
+    <li>
+        <label th:text="${post.content}"></label><br><br>
+    </li>
+
+</ul>
+</body>
+</html>
