@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Albums</title>
+    <title>album</title>
     <link th:href="@{/css/style.css}"  type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -11,22 +11,23 @@
 
 </ul>
 
-<h1 class="h1Hello" >your Albums from database</h1>
-<ol class="olStyle" th:each="album:${albums}">
-    <!--    <label>title</label><label th:text="${album.id}"></label><br><br>-->
+<ol class="olStyle" th:each="album:${album}">
+
     <li><label>Artist : </label><label th:text="${album.artist}"></label><br><br>
         <label>Title : </label><label th:text="${album.title}"></label><br><br>
         <label>Song Count : </label><label th:text="${album.songCount}"></label><br><br>
         <label>Image Url : </label><label th:text="${album.imgUrl}"></label><br><br>
         <label>length : </label><label th:text="${album.length}"></label><br><br></li>
+        <label>album songs</label>
+           <ol class="olStyle" th:each="songs:${album.songs}">
+               <li>  <label>Title : </label><label th:text="${songs.title}"></label><br><br>
+                   <label>length : </label> <label th:text="${songs.length}"></label><br><br>
+                   <label>track Number : </label>  <label th:text="${songs.trackNumber}"></label><br><br></li>
+                   <label><---------------------------------------------></label>
+           </ol>
     <label>************************************************************************************</label>
 
 </ol>
-
-<form action="/Albums" method="get">
-    <input type="submit" value="add new album" style="margin-bottom: 10%;">
-
-</form>
 
 <article class="footer">
     <p>all right received </p>

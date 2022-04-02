@@ -1,0 +1,114 @@
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: #DF711B;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 50px;
+  font-weight: 900;
+  background-color: #3DB2FF;
+}
+
+.olStyle{
+    list-style: none;
+    color: #DF711B;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+body{
+   font-family: cursive;
+}
+
+.h1Hello{
+ text-align: center;
+ color: #DF711B;
+}
+
+input[type=text] , select{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+      color: #DF711B;
+      font-weight: 900;
+      font-family: cursive;
+      font-size: 15px;
+
+
+}
+
+label{
+ color: #DF711B;
+ font-weight: 900;
+}
+select{
+    color: #DF711B;
+    font-weight: 900;
+    font-family: cursive;
+    font-size: 15px;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #3DB2FF;
+  color: #DF711B;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 10%;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 10px;
+}
+
+p{
+font-size: 20px;
+    font-weight: bold;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #3DB2FF;
+   color: white;
+   text-align: center;
+
+}
+
+

@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Songs</title>
+    <link th:href="@{/css/style.css}"  type="text/css" rel="stylesheet" />
 </head>
 <body>
+<ul>
+    <li><a class="active" href="/">Songr App </a></li>
+
+</ul>
+<div>
 <form action="/addSong" method="post">
     <label>Title  </label><input type="text" name="title" /><br><br>
     <label>Length  </label><input type="text" name="length" /><br><br>
@@ -16,8 +22,13 @@
                 th:selected="${album.id}">
 
         </option>
-    </select>
-    <button type="submit">submit</button><br>
+    </select><br><br>
+    <input type="submit" value="add song">
 </form>
+</div>
+
+<article class="footer">
+    <p>all right received </p>
+</article>
 </body>
 </html>

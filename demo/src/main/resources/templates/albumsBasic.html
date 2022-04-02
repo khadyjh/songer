@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Albums</title>
+    <title>albumsBasic</title>
     <link th:href="@{/css/style.css}"  type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -10,9 +10,8 @@
     <li><a class="active" href="/">Songr App </a></li>
 
 </ul>
-
-<h1 class="h1Hello" >your Albums from database</h1>
-<ol class="olStyle" th:each="album:${albums}">
+<h1 class="h1Hello">your Albums in hard coded way</h1>
+<ol th:each="album:${albums}" class="olStyle" >
     <!--    <label>title</label><label th:text="${album.id}"></label><br><br>-->
     <li><label>Artist : </label><label th:text="${album.artist}"></label><br><br>
         <label>Title : </label><label th:text="${album.title}"></label><br><br>
@@ -22,11 +21,6 @@
     <label>************************************************************************************</label>
 
 </ol>
-
-<form action="/Albums" method="get">
-    <input type="submit" value="add new album" style="margin-bottom: 10%;">
-
-</form>
 
 <article class="footer">
     <p>all right received </p>

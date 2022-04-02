@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>songs</title>
+    <link th:href="@{/css/style.css}"  type="text/css" rel="stylesheet" />
+</head>
+<body>
+<ul>
+    <li><a class="active" href="/">Songr App </a></li>
+
+</ul>
+
+<h1 class="h1Hello">your all songs </h1>
+<ol class="olStyle" th:each="song:${songs}">
+    <!--    <label>title</label><label th:text="${album.id}"></label><br><br>-->
+    <li><label>title : </label><label th:text="${song.title}"></label><br><br>
+        <label>length : </label><label th:text="${song.length}"></label><br><br>
+        <label>track Number : </label><label th:text="${song.trackNumber}"></label><br><br>
+
+    <label>************************************************************************************</label>
+
+</ol>
+
+<article class="footer">
+    <p>all right received </p>
+</article>
+</body>
+</html>

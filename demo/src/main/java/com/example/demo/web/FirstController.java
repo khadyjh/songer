@@ -14,6 +14,12 @@ import java.util.List;
 @Controller
 public class FirstController {
 
+    /////////////////////////////////////////// lab 11 ///////////////////////////////////////////
+    @GetMapping("/")
+    String getRoot(){
+        return "index";
+    }
+
     @GetMapping("/hello")
     String hello(){
         System.out.println("hello");
@@ -40,15 +46,16 @@ public class FirstController {
     }
 
 
-    @ResponseBody
-    @GetMapping("/albums")
-    List<Album> getAlbum(){
+
+    @GetMapping("/albumsBasic")
+    String getAlbum(Model model){
         List<Album> albums=new ArrayList<>();
         albums.add(new Album("title","hamzah namira",5,"www.newone.com",120.5f));
         albums.add(new Album("title1","hmoud alkhader",6,"www.one.com",130.5f));
         albums.add(new Album("title2","maher zain",8,"www.new.com",150.5f));
 
-        return albums;
+        model.addAttribute("albums",albums);
+        return "albumsBasic";
     }
 
 }

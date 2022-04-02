@@ -14,13 +14,12 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 public class AlbumController {
 
-
+    /////////////////////////////////////////// lab 12 ///////////////////////////////////////////
     @Autowired
     AlbumRepository albumRepository;
 
     @GetMapping("/Albums")
     public String Add(Model model){
-//        model.addAttribute("albums",albumRepository.findAll());
         return "home";
     }
     @GetMapping("/newAlbum")
