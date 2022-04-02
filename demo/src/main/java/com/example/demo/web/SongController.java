@@ -15,6 +15,8 @@ import java.util.List;
 @Controller
 public class SongController {
 
+    /////////////////////////////////////////// lab 13 ///////////////////////////////////////////
+
     private final SongRepository songRepository;
     private final AlbumRepository albumRepository;
 
@@ -38,24 +40,29 @@ public class SongController {
 
     }
 
-    @ResponseBody
+
     @GetMapping("/allSongs")
-    public List<Song> gitAllSongs(){
-        return songRepository.findAll();
+    public String gitAllSongs(Model model){
+        model.addAttribute("songs",songRepository.findAll());
+        return "songs";
     }
 
-    @ResponseBody
+
+    // find song by album id
     @GetMapping("/albumsSong/{id}")
-    public List<Song> gitAllSongsByAlbum(@PathVariable int id){
+    public String gitAllSongsByAlbum(@PathVariable int id, Model model){
 
-        return songRepository.findByAlbumId(id);
+        model.addAttribute("idSong",songRepository.findByAlbumId(id));
+        return "idSong";
     }
 
-    @ResponseBody
-    @GetMapping("/oneAlbums/{id}")
-    public List<Album> gitAlbum(@PathVariable int id){
+    // get all data about one album
 
-        return Collections.singletonList(albumRepository.findById(id).orElseThrow());
+    @GetMapping("/oneAlbums/{id}")
+    public String gitAlbum(@PathVariable int id , Model model){
+
+        model.addAttribute("album",albumRepository.findById(id).orElseThrow() );
+        return "album";
     }
 
 
