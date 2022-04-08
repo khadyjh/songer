@@ -5,18 +5,11 @@
     <title>Post</title>
 </head>
 <body>
+<h1>home page</h1>
+
 <form action="/post" method="post">
     <label> Type your post here : </label> <br><br>
     <textarea name="content" type="text"></textarea><br><br>
-    <select name="user">
-        <option th:each="user : ${users}"
-                th:text="${user.userName}"
-                th:value="${user.userId}"
-                th:selected="${user.userId}">
-
-        </option>
-    </select><br><br>
-
     <button type="submit"> Post  </button>
 </form>
 <br><br><br><br>
@@ -29,5 +22,9 @@
     </li>
 
 </ul>
+
+<form action="/logout" method="post">
+    <button>logout</button>
+</form>
 </body>
 </html>
