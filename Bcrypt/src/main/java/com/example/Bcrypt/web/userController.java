@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class userController {
 
@@ -27,7 +30,8 @@ public class userController {
     }
 
     @GetMapping("/")
-    public String hello(){
+    public String hello(Model model){
+        model.addAttribute("allPost" ,postRepositories.findAll());
         return "index";
     }
 
@@ -51,14 +55,21 @@ public class userController {
         return "login";
     }
 
-    @PostMapping("/login")
-    public RedirectView validateUser(@ModelAttribute Users users){
-        Users dbUser=usersRepositories.findByuserName(users.getUserName());
 
-        if ((dbUser == null) || (!BCrypt.checkpw(users.getPassword(), dbUser.getPassword()))) {
+    @PostMapping("/login")
+    public RedirectView logInUserWithSecret(HttpServletRequest request, String userName, String password)
+    {
+        Users userFromDb = usersRepositories.findByuserName(userName);
+        if ((userFromDb == null)
+                || (!BCrypt.checkpw(password, userFromDb.getPassword())))
+        {
             return new RedirectView("/login");
         }
-        return new RedirectView("post");
+
+        HttpSession session = request.getSession();
+        session.setAttribute("username", userName);
+
+        return new RedirectView("/post");
     }
 
     // post page
@@ -70,11 +81,25 @@ public class userController {
     }
 
     @PostMapping("/post")
-    public RedirectView postNewPost(@ModelAttribute Post post){
+    public RedirectView postNewPost(@ModelAttribute Post post, HttpServletRequest request, Model model){
+        HttpSession session= request.getSession();
+        String username=session.getAttribute("username").toString();
+        Users users=usersRepositories.findByuserName(username);
+        post.setUser(users);
         postRepositories.save(post);
 
         return new RedirectView("post");
 
+    }
+
+    //logout
+    @PostMapping("/logout")
+    public RedirectView logout(HttpServletRequest request){
+        HttpSession session= request.getSession();
+        session.invalidate();
+
+
+        return new RedirectView("/");
     }
 
 }
