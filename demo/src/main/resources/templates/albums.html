@@ -19,6 +19,10 @@
         <label>Song Count : </label><label th:text="${album.songCount}"></label><br><br>
         <label>Image Url : </label><label th:text="${album.imgUrl}"></label><br><br>
         <label>length : </label><label th:text="${album.length}"></label><br><br></li>
+    <form action="/detail" method="post">
+        <input type="hidden" th:value="${album.id}" name="id" >
+        <button class="olStyle">see album detail</button>
+    </form>
     <label>************************************************************************************</label>
 
 </ol>
