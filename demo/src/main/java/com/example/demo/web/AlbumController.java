@@ -22,6 +22,7 @@ public class AlbumController {
     public String Add(Model model){
         return "home";
     }
+
     @GetMapping("/newAlbum")
     public String render(Model model){
         model.addAttribute("albums",albumRepository.findAll());
@@ -34,5 +35,10 @@ public class AlbumController {
         return new RedirectView("newAlbum");
     }
 
+    @PostMapping("/detail")
+    public String getDetail(@RequestParam int id , Model model){
+        model.addAttribute("album",albumRepository.findById(id).orElseThrow());
+        return "album";
+    }
 
 }
