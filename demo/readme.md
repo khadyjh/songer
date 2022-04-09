@@ -1,6 +1,14 @@
 # songr App
 this project about creating web app using spring java framework and postgres database 
 
+### to use this application
+in order to use this app you need first to run the postgres database server , create new database then link it to this app, and change the database configuration using **application.properties** File
+
+**in first time you ringing this app *spring.jpa.hibernate.ddl-auto=create* then change it to become *spring.jpa.hibernate.ddl-auto=update***
+
+
+**you can run the app using bootRun gradle command**
+
 ### FirstController rout 
 - http://localhost:8081
 
@@ -46,9 +54,3 @@ this project about creating web app using spring java framework and postgres dat
 
 
 
-### to use this application 
-in order to use this app you need first to run the postgres database server , create new database then link it to this app, and change the database configuration using **application.properties** File
-
-**in first time you ringing this app *spring.jpa.hibernate.ddl-auto=create* then change it to become *spring.jpa.hibernate.ddl-auto=update***
-
-///bootRun
