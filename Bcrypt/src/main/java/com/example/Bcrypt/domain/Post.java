@@ -1,7 +1,10 @@
 package com.example.Bcrypt.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
+@JsonIgnoreProperties({"user"})
 @Entity
 public class Post {
     @Id
@@ -10,14 +13,14 @@ public class Post {
 
     private String content;
 
-    private int userId;
+//    private int userId;
 
 
     public Post() {
     }
 
-    public Post(int id, String content) {
-        this.id = id;
+    public Post( String content) {
+
         this.content = content;
     }
 
@@ -29,13 +32,13 @@ public class Post {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
-    }
+//    public int getUserId() {
+//        return userId;
+//    }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
 
     public Users getUser() {
         return user;
