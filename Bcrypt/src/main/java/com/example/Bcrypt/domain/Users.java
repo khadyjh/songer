@@ -1,16 +1,19 @@
 package com.example.Bcrypt.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+@JsonIgnoreProperties({"posts"})
 @Entity
 public class Users {
     @Id
     @GeneratedValue
-    private int userId;
+    private int id;
 
     private String userName;
     private String password;
@@ -24,12 +27,12 @@ public class Users {
         this.password = password;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserName() {

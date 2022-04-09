@@ -8,7 +8,16 @@
 <h1> welcome page </h1>
 
 <p>to sign up <a href="/newuser">sign up</a></p>
-<p>to log in <a href="/login">sign up</a></p>
+<p>to log in <a href="/login">log in</a></p>
+<h3> all post </h3>
+<ul th:each="post:${allPost}">
+
+    <li>
+        <label th:text="${post.content}"></label><br><br>
+        <label>***********************************************</label>
+    </li>
+
+</ul>
 
 </body>
 </html>

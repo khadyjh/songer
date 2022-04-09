@@ -74,9 +74,13 @@ public class userController {
 
     // post page
     @GetMapping("/post")
-    public String addPost(Model model){
+    public String addPost(Model model,HttpServletRequest request){
+        HttpSession session= request.getSession();
+        String username=session.getAttribute("username").toString();
+        Users users=usersRepositories.findByuserName(username);
         model.addAttribute("users" , usersRepositories.findAll());
-        model.addAttribute("allPosts",postRepositories.findAll());
+        model.addAttribute("username",username);
+        model.addAttribute("userPost",postRepositories.findByUserId(users.getId()));
         return "post";
     }
 
